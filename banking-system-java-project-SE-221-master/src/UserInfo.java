@@ -24,7 +24,9 @@ public class UserInfo {
                 JOptionPane.showMessageDialog(frame, "Your Balance Is 100 tk.");
                 menu(frame, serial);
             } else {
-                JOptionPane.showMessageDialog(frame, "Invalid");
+                amount1.add(0);
+                JOptionPane.showMessageDialog(frame, "You missed the 100 tk. Offer. Your Balance Is 0 tk.");
+                menu(frame, serial);
             }
         } else {
             menu(frame, serial);
@@ -78,7 +80,8 @@ public class UserInfo {
         String amount2Str = JOptionPane.showInputDialog(frame, "Enter The amount You want to Withdraw:");
         int amount2 = Integer.parseInt(amount2Str);
         // Check if the user has enough money to withdraw
-        if (100 < amount1.get(serial) - amount2) {
+
+        if (amount1.get(serial) >= amount2) {
             // Display a message indicating successful withdrawal
             JOptionPane.showMessageDialog(frame, "Withdrawn Amount: " + amount2);
             // Update the user's balance
